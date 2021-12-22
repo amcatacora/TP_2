@@ -8,8 +8,8 @@
 Se utilizará el campo de estado para indicar si el ítem del array esta ocupado o no.
 El gráfico deberá ser un gráfico de barras en donde se agruparán 3 barras:
 
-• Menores de 18
-• De 19 a 35
+• Menores de 18<br>
+• De 19 a 35<br>
 • Mayores de 35.
 
 En el eje Y se marcarán la cantidad de personas en el grupo, y en el eje X el grupo
@@ -17,7 +17,7 @@ En el eje Y se marcarán la cantidad de personas en el grupo, y en el eje X el g
 ## Integrantes
 <ul>
 <li><a href="https://github.com/Aaron-espindola">Aaron Espindola</a></li>
-<li><a href="https://github.com/ProwlerExx09">Facundo</a></li>
+<li><a href="https://github.com/ProwlerExx09">Facundo Lastiri</a></li>
 <li><a href="https://github.com/Charlyvazquez76">Carlos Vazquez</a></li>
 <li><a href="https://github.com/amcatacora">Adrian Catacora</a></li>
 </ul>
