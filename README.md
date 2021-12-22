@@ -19,5 +19,5 @@ En el eje Y se marcarán la cantidad de personas en el grupo, y en el eje X el g
 <li><a href="https://github.com/Aaron-espindola">Aaron Espindola</a></li>
 <li><a href="https://github.com/ProwlerExx09">Facundo Lastiri</a></li>
 <li><a href="https://github.com/Charlyvazquez76">Carlos Vazquez</a></li>
-<li><a href="https://github.com/amcatacora">Adrian Catacora</a></li>
+<li><a href="https://github.com/amcatacora">Adrian Matias Catacora</a></li>
 </ul>
