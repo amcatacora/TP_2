@@ -14,17 +14,17 @@ void init(EPersona personas[CANT])
 void menu(){
     printf("-------------Trabajo Practico N-2------------- \n");
     printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- \n\n\n");
-    printf("-------------Menu Principal-------------\n");
+    printf("-------------Menu Principal-------------\n\n");
     printf("1- Agregar persona\n");
     printf("2- Borrar persona\n");
     printf("3- Imprimir lista ordenada por  nombre\n");
     printf("4- Imprimir grafico de edades\n\n");
-    printf("5- Salir\n");
+    printf("5- Salir del programa\n");
 }
 
 void agregar(EPersona personas[CANT])
 {
-    printf("AGREGANDO\n");
+    printf("\nAGREGANDO\n");
     for(int i = 0 ; i < CANT ; i++ ){
         if( personas[i].estado == VACIO ){
                 printf("----------NUEVO----------\n");
@@ -44,10 +44,10 @@ void agregar(EPersona personas[CANT])
 }
 void mostrar(EPersona personas[CANT])
 {
-    printf("-------------Lista de Personas-------------\n");
+    printf("\n\n-------------Lista de Personas-------------\n\n\n");
     for( int i = 0 ; i < CANT ; i++ ) {
         if(personas[i].estado == ACTIVO){
-            printf("|%s|%3.d |%12.d|\n",
+            printf("\n|%s|%3.d |%12.d|\n\n",
                personas[i].nombre,
                personas[i].edad,
                personas[i].dni);
@@ -59,7 +59,17 @@ void mostrar(EPersona personas[CANT])
 void borrado(void)
 {
     getchar();
-    printf("Cargando....\n");
+    printf("\n\n\nCargando....\n");
     getchar();
     system("cls");
+}
+
+
+void imprimirListaOrdenada(EPersona personas[CANT])
+{
+
+}
+void imprimirGraficoEdades(EPersona personas[CANT])
+{
+
 }
