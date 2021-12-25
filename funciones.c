@@ -13,11 +13,11 @@ void init(EPersona personas[CANT])
 
 void menu(){
     printf("-------------Trabajo Practico N-2------------- \n");
-    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- \n\n\n");
+    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aarón Espíndola\n>-- \n\n\n");
     printf("-------------Menu Principal-------------\n\n");
     printf("1- Agregar persona\n");
     printf("2- Borrar persona\n");
-    printf("3- Imprimir lista ordenada por  nombre\n");
+    printf("3- Imprimir lista ordenada por nombre\n");
     printf("4- Imprimir grafico de edades\n\n");
     printf("5- Salir del programa\n");
 }
@@ -47,7 +47,7 @@ void mostrar(EPersona personas[CANT])
     printf("\n\n-------------Lista de Personas-------------\n\n\n");
     for( int i = 0 ; i < CANT ; i++ ) {
         if(personas[i].estado == ACTIVO){
-            printf("\n|%s|%3.d |%12.d|\n\n",
+            printf("\n|Nombre: %s | Edad: %3.d | DNI: %12.d|\n\n",
                personas[i].nombre,
                personas[i].edad,
                personas[i].dni);
@@ -67,8 +67,28 @@ void borrado(void)
 
 void imprimirListaOrdenada(EPersona personas[CANT])
 {
+    printf("\n Personas base\n"); // Print y mostrar para ver la lista sin ordenar
+    mostrar(personas);
+    //FUNCION ORDENAR LISTA
+    for (int i = 0; i < CANT; i++){
+        for (int j = 0; j < CANT-1; j++){
 
+            if (personas[j].nombre > personas[j+1].nombre){
+                EPersona aux = personas[j];
+                personas[j] = personas[j+1];
+                personas[j+1] = aux;
+            }
+            
+        }
+        
+    }
+    
+    //MOSTRAR LISTA ORDENADA
+    printf("\n Personas ordenadas por nombre\n");
+    mostrar(personas);
 }
+
+
 void imprimirGraficoEdades(EPersona personas[CANT])
 {
 
