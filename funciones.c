@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "funciones.h"
 
 void init(EPersona personas[CANT])
@@ -13,18 +16,14 @@ void init(EPersona personas[CANT])
 
 void menu(){
     printf("-------------Trabajo Practico N-2------------- \n");
-<<<<<<< HEAD
-    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aaron Espindola\n>-- \n\n\n");
-=======
-    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aarón Espíndola\n>-- \n\n\n");
->>>>>>> f19ab4e7be7f4957d05b845d279481b0eb5d18cc
+    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aaron Espindola\n>-- Adrian Catacora\n\n\n");
     printf("-------------Menu Principal-------------\n\n");
-    printf("1- Agregar persona\n");
-    printf("2- Borrar persona\n");
-    printf("3- Imprimir lista ordenada por  nombre\n");
-    printf("4- Imprimir grafico de edades\n\n");
-    printf("5- Salir del programa\n");
-    printf("6- Ver Lista SIN ORDENAR\n");
+    printf("1- Agregar personas\n");
+    printf("2- Borrar persona por DNI\n");
+    printf("3- Ordenar por nombre e imprimir lista\n");
+    printf("4- Imprimir grafico de edades\n");
+    printf("5- Imprimir lista\n");
+    printf("6- Salir del programa\n");
 }
 
 void agregar(EPersona personas[CANT])
@@ -50,10 +49,10 @@ void agregar(EPersona personas[CANT])
 
 void mostrar(EPersona personas[CANT])
 {
-    printf("\n\n-------------Lista de Personas-------------\n\n\n");
+    printf("\n\n-------------Lista de Personas-------------\n\n");
     for( int i = 0 ; i < CANT ; i++ ) {
         if(personas[i].estado == ACTIVO){
-            printf("\n|Nombre: %s | Edad: %3.d | DNI: %12.d|\n\n",
+            printf("\n|Nombre: %s | Edad: %3.d | DNI: %12.d|\n",
                personas[i].nombre,
                personas[i].edad,
                personas[i].dni);
@@ -65,7 +64,7 @@ void mostrar(EPersona personas[CANT])
 void borrado(void)
 {
     getchar();
-    printf("\n\n\nCargando....\n");
+    printf("\n\n\nPresione una tecla para continuar...\n");
     getchar();
     system("cls");
 }
@@ -73,24 +72,16 @@ void borrado(void)
 
 void imprimirListaOrdenada(EPersona personas[CANT])
 {
-<<<<<<< HEAD
     //MOSTRAR LISTA
     printf("\n Personas base\n");
     //mostrar(personas);
-=======
-    //MOSTRAR LISTA 
-    printf("\n Personas base\n"); 
-    mostrar(personas);
->>>>>>> f19ab4e7be7f4957d05b845d279481b0eb5d18cc
     //FUNCION ORDENAR LISTA
     for (int i = 0; i < CANT; i++){
         for (int j = 0; j < CANT-1; j++){
-
-<<<<<<< HEAD
             if( strcmp(personas[j].nombre,personas[j+1].nombre) >=0 )
             {
                 EPersona aux[1];
-                init(aux);
+                //init(aux);
 
                 aux[0] = personas[j];
                 personas[j] = personas[j+1];
@@ -100,18 +91,6 @@ void imprimirListaOrdenada(EPersona personas[CANT])
         }
 
     }
-=======
-            if (personas[j].nombre > personas[j+1].nombre){
-                EPersona aux = personas[j];
-                personas[j] = personas[j+1];
-                personas[j+1] = aux;
-            }
-            
-        }
-        
-    }
-    
->>>>>>> f19ab4e7be7f4957d05b845d279481b0eb5d18cc
     //MOSTRAR LISTA ORDENADA
     printf("\n Personas ordenadas por nombre\n");
     mostrar(personas);
