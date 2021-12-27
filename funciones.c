@@ -109,12 +109,15 @@ int buscarPor(EPersona personas[CANT])
     char nombre[25];
     int posi = -1;
 
-    do{
+
         printf("\n¿ Que que tipo de dato sea buscar ?\n\n");
         printf("\n - [ 1 ] Nombre y Apellido \n");
         printf("\n - [ 2 ] DNI \n");
         printf("\n - [ 3 ] EDAD \n");
-        scanf("%d",&opcion);
+        do{
+            scanf("%d",&opcion);
+        }while(opcion != 1  && opcion != 2 && opcion != 3 );
+
         if(opcion!=4){printf("\n Ingrese el dato.  ");}
         switch(opcion)
         {
@@ -122,31 +125,31 @@ int buscarPor(EPersona personas[CANT])
             case 2 : scanf("%d",&dato);break;
             case 3 : scanf("%d",&dato);break;
         }
+        //
 
-      for(int i = 0 ; i<CANT ; i++)
+        printf("dato obtenido %d  %d   %s",dato,dato,nombre);
+
+      for(int i = 0 ; i < CANT ; i++ )
         {
-            if(opcion == 1 && strcmp(personas[i].nombre,nombre) == 0 && personas[i].estado == ACTIVO)
+            if(opcion == 1 && (strcmp(personas[i].nombre,nombre) == 0 )&& personas[i].estado == ACTIVO)
                 {
                     posi = i;
-                    opcion = 4 ;
+                    break;
 
                 }
-            if(opcion == 2 && personas[i].dni == dato && personas[i].estado == ACTIVO)
+            if(opcion == 2 && personas[i].dni == dato && personas[i].estado == ACTIVO )
                 {
                     posi = i;
-                    opcion = 4 ;
+                    break;
 
                 }
-            if(opcion == 3 && personas[i].edad == dato && personas[i].estado == ACTIVO)
+            if(opcion == 3 && personas[i].edad == dato && personas[i].estado == ACTIVO )
                 {
                     posi = i;
-                    opcion = 4 ;
+                    break;
 
                 }
-            else{opcion=4;}
         }
-
-        }while(opcion!=4);
 return(posi);
 }
 
