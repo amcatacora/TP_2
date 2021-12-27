@@ -1,7 +1,7 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
-#define CANT 2
+#define CANT 5
 #define VACIO 0
 #define ACTIVO 1
 #define BORRADO 2

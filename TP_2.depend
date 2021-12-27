@@ -9,12 +9,22 @@
 
 1640217085 c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.h
 
-1640432339 source:c:\users\lasti\onedrive\escritorio\proyectos\tp_22\funciones.c
+1640583327 source:c:\users\lasti\onedrive\escritorio\proyectos\tp_22\funciones.c
 	"funciones.h"
 
-1640429019 c:\users\lasti\onedrive\escritorio\proyectos\tp_22\funciones.h
+1640580128 c:\users\lasti\onedrive\escritorio\proyectos\tp_22\funciones.h
 
-1640429404 source:c:\users\lasti\onedrive\escritorio\proyectos\tp_22\main.c
+1640583458 source:c:\users\lasti\onedrive\escritorio\proyectos\tp_22\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1640583327 source:c:\users\lasti\downloads\tp_2-main\tp_2-main\funciones.c
+	"funciones.h"
+
+1640580128 c:\users\lasti\downloads\tp_2-main\tp_2-main\funciones.h
+
+1640583458 source:c:\users\lasti\downloads\tp_2-main\tp_2-main\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"

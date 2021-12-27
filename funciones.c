@@ -13,18 +13,19 @@ void init(EPersona personas[CANT])
 
 void menu(){
     printf("-------------Trabajo Practico N-2------------- \n");
-    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Adrian\n>-- Aron\n\n\n");
+    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aaron Espindola\n>-- \n\n\n");
     printf("-------------Menu Principal-------------\n\n");
     printf("1- Agregar persona\n");
     printf("2- Borrar persona\n");
     printf("3- Imprimir lista ordenada por  nombre\n");
     printf("4- Imprimir grafico de edades\n\n");
     printf("5- Salir del programa\n");
+    printf("6- Ver Lista SIN ORDENAR\n");
 }
 
 void agregar(EPersona personas[CANT])
 {
-    printf("\nAGREGANDO\n");
+    printf("\n --- FUNCION DE AGREGANDO --- \n");
     for(int i = 0 ; i < CANT ; i++ ){
         if( personas[i].estado == VACIO ){
                 printf("----------NUEVO----------\n");
@@ -42,16 +43,16 @@ void agregar(EPersona personas[CANT])
     }
     borrado();
 }
+
 void mostrar(EPersona personas[CANT])
 {
     printf("\n\n-------------Lista de Personas-------------\n\n\n");
-    printf("\n||     DNI     || EDAD || NOMBRE Y APELLIDO \n\n");
     for( int i = 0 ; i < CANT ; i++ ) {
         if(personas[i].estado == ACTIVO){
-            printf("\n||%13.d ||%5.d||%s\n\n"
-                   ,personas[i].dni,
-                    personas[i].edad
-                    ,personas[i].nombre);
+            printf("\n|Nombre: %s | Edad: %3.d | DNI: %12.d|\n\n",
+               personas[i].nombre,
+               personas[i].edad,
+               personas[i].dni);
         }
     }
     borrado();
@@ -59,11 +60,46 @@ void mostrar(EPersona personas[CANT])
 
 void borrado(void)
 {
-    getchar();getchar();
+    getchar();
     printf("\n\n\nCargando....\n");
     getchar();
     system("cls");
 }
+
+
+void imprimirListaOrdenada(EPersona personas[CANT])
+{
+    //MOSTRAR LISTA
+    printf("\n Personas base\n");
+    //mostrar(personas);
+    //FUNCION ORDENAR LISTA
+    for (int i = 0; i < CANT; i++){
+        for (int j = 0; j < CANT-1; j++){
+
+            if( strcmp(personas[j].nombre,personas[j+1].nombre) >=0 )
+            {
+                EPersona aux[1];
+                init(aux);
+
+                aux[0] = personas[j];
+                personas[j] = personas[j+1];
+                personas[j+1] = aux[0];
+            }
+
+        }
+
+    }
+    //MOSTRAR LISTA ORDENADA
+    printf("\n Personas ordenadas por nombre\n");
+    mostrar(personas);
+}
+
+void imprimirGraficoEdades(EPersona personas[CANT])
+{
+
+}
+
+
 int buscarPor(EPersona personas[CANT])
 {
     int opcion = 0;
@@ -72,7 +108,7 @@ int buscarPor(EPersona personas[CANT])
     int posi = -1;
 
     do{
-        printf("\n¿ Que que tipo de dato sea buscar ?\n\n");
+        printf("\nÂ¿ Que que tipo de dato sea buscar ?\n\n");
         printf("\n - [ 1 ] Nombre y Apellido \n");
         printf("\n - [ 2 ] DNI \n");
         printf("\n - [ 3 ] EDAD \n");
@@ -120,7 +156,7 @@ borrado();
 if( posi != -1)
     {
         personas[posi].estado = BORRADO;
-        printf("\n Dato Encontrado y Eliminado con Exito ¡ \n");
+        printf("\n Dato Encontrado y Eliminado con Exito \n");
 
     }
 else
@@ -130,15 +166,5 @@ else
 
     getchar();
     system("cls");
-
-}
-
-
-void imprimirListaOrdenada(EPersona personas[CANT])
-{
-
-}
-void imprimirGraficoEdades(EPersona personas[CANT])
-{
 
 }
