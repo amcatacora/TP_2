@@ -41,7 +41,7 @@ void agregar(EPersona personas[CANT])
                 scanf("%d",&personas[i].dni);
                 personas[i].estado = ACTIVO;
         }else{
-            printf("TODO LOS ESPACIOS FUERON COMPLETADOS \n");
+            printf("Lugar [%d] Ocupado  \n",i+1);
         }
     }
     borrado();
@@ -80,12 +80,12 @@ void imprimirListaOrdenada(EPersona personas[CANT])
         for (int j = 0; j < CANT-1; j++){
             if( strcmp(personas[j].nombre,personas[j+1].nombre) >=0 )
             {
-                EPersona aux[1];
+                EPersona aux;
                 //init(aux);
 
-                aux[0] = personas[j];
+                aux = personas[j];
                 personas[j] = personas[j+1];
-                personas[j+1] = aux[0];
+                personas[j+1] = aux;
             }
 
         }
@@ -160,7 +160,7 @@ posi = buscarPor(personas);
 borrado();
 if( posi != -1)
     {
-        personas[posi].estado = BORRADO;
+        personas[posi].estado = VACIO;
         printf("\n Dato Encontrado y Eliminado con Exito \n");
 
     }

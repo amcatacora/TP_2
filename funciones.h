@@ -4,7 +4,6 @@
 #define CANT 5
 #define VACIO 0
 #define ACTIVO 1
-#define BORRADO 2
 
 typedef struct {
     char nombre[50];
