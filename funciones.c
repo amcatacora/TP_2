@@ -13,7 +13,11 @@ void init(EPersona personas[CANT])
 
 void menu(){
     printf("-------------Trabajo Practico N-2------------- \n");
+<<<<<<< HEAD
     printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aaron Espindola\n>-- \n\n\n");
+=======
+    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aarón Espíndola\n>-- \n\n\n");
+>>>>>>> f19ab4e7be7f4957d05b845d279481b0eb5d18cc
     printf("-------------Menu Principal-------------\n\n");
     printf("1- Agregar persona\n");
     printf("2- Borrar persona\n");
@@ -69,13 +73,20 @@ void borrado(void)
 
 void imprimirListaOrdenada(EPersona personas[CANT])
 {
+<<<<<<< HEAD
     //MOSTRAR LISTA
     printf("\n Personas base\n");
     //mostrar(personas);
+=======
+    //MOSTRAR LISTA 
+    printf("\n Personas base\n"); 
+    mostrar(personas);
+>>>>>>> f19ab4e7be7f4957d05b845d279481b0eb5d18cc
     //FUNCION ORDENAR LISTA
     for (int i = 0; i < CANT; i++){
         for (int j = 0; j < CANT-1; j++){
 
+<<<<<<< HEAD
             if( strcmp(personas[j].nombre,personas[j+1].nombre) >=0 )
             {
                 EPersona aux[1];
@@ -89,6 +100,18 @@ void imprimirListaOrdenada(EPersona personas[CANT])
         }
 
     }
+=======
+            if (personas[j].nombre > personas[j+1].nombre){
+                EPersona aux = personas[j];
+                personas[j] = personas[j+1];
+                personas[j+1] = aux;
+            }
+            
+        }
+        
+    }
+    
+>>>>>>> f19ab4e7be7f4957d05b845d279481b0eb5d18cc
     //MOSTRAR LISTA ORDENADA
     printf("\n Personas ordenadas por nombre\n");
     mostrar(personas);
