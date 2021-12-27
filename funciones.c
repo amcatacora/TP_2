@@ -31,15 +31,15 @@ void agregar(EPersona personas[CANT])
     printf("\n --- FUNCION DE AGREGANDO --- \n");
     for(int i = 0 ; i < CANT ; i++ ){
         if( personas[i].estado == VACIO ){
-                printf("----------NUEVO----------\n");
-                printf(" >-- Nombre : ");
-                getchar();
-                gets(personas[i].nombre);
-                printf(" >-- Edad : ");
-                scanf("%d",&personas[i].edad);
-                printf(" >-- D.N.I : ");
-                scanf("%d",&personas[i].dni);
-                personas[i].estado = ACTIVO;
+            printf("----------NUEVO----------\n");
+            printf(" >-- Nombre : ");
+            getchar();
+            gets(personas[i].nombre);
+            printf(" >-- Edad : ");
+            scanf("%d",&personas[i].edad);
+            printf(" >-- D.N.I : ");
+            scanf("%d",&personas[i].dni);
+            personas[i].estado = ACTIVO;
         }else{
             printf("Lugar [%d] Ocupado  \n",i+1);
         }
@@ -63,7 +63,7 @@ void mostrar(EPersona personas[CANT])
 
 void borrado(void)
 {
-    getchar();
+    //getchar();
     printf("\n\n\nPresione una tecla para continuar...\n");
     getchar();
     system("cls");
@@ -150,21 +150,21 @@ int buscarPor(EPersona personas[CANT])
 
                 }
         }
-return(posi);
+    return(posi);
 }
 
 void borrarPersona(EPersona personas[CANT])
 {
-int posi = 0;
-posi = buscarPor(personas);
-borrado();
-if( posi != -1)
+    int posi = 0;
+    posi = buscarPor(personas);
+    borrado();
+    if( posi != -1)
     {
         personas[posi].estado = VACIO;
         printf("\n Dato Encontrado y Eliminado con Exito \n");
 
     }
-else
+    else
     {
         printf("\n [ERROR] Dato no Encontrado \n");
     }
