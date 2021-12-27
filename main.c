@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <conio.h>
 #include "funciones.h"
 
 int main()
@@ -18,7 +18,6 @@ int main()
 
     do{
         menu();
-        //scanf("%d",&opcion);
         opcion = getch();
         switch(opcion){
             case 49 : agregar(personas); break;

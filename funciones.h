@@ -17,6 +17,10 @@ void init(EPersona personas[CANT]);
 void menu();
 void agregar(EPersona personas[CANT]);
 void mostrar(EPersona personas[CANT]);
+void borrarPersona(EPersona personas[CANT]);
 void borrado(void);
+void imprimirListaOrdenada(EPersona personas[CANT]);
+void imprimirGraficoEdades(EPersona personas[CANT]);
+void setColor(int background, int text);
 
 #endif // FUNCIONES_H_INCLUDED

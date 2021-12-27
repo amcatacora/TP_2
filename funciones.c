@@ -1,7 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <windows.h>
 #include "funciones.h"
+
+///definicion de colores
+#define COLOR_NEGRO 0
+#define COLOR_AZUL 1
+#define COLOR_VERDE 2
+#define COLOR_CELESTE 3
+#define COLOR_ROJO 4
+#define COLOR_BLANCO 15
 
 void init(EPersona personas[CANT])
 {
@@ -96,8 +105,51 @@ void imprimirListaOrdenada(EPersona personas[CANT])
     mostrar(personas);
 }
 
-void imprimirGraficoEdades(EPersona personas[CANT])
-{
+void imprimirGraficoEdades(EPersona personas[CANT]) {
+
+    int cantidadMenores = 0;
+    int cantidadAdultos = 0;
+    int cantidadMayores = 0;
+
+    for( int i = 0 ; i < CANT ; i++ ) {
+        if(personas[i].estado == ACTIVO){
+            if(personas[i].edad <= 18) {
+                cantidadMenores++;
+            } else if(personas[i].edad > 18 && personas[i].edad <= 35) {
+                cantidadAdultos++;
+            } else if(personas[i].edad > 35) {
+                cantidadMayores++;
+            }
+        }
+    }
+
+    system("cls");
+    printf("\n\n                                  GRAFICO DE EDADES \n\n");
+    printf("             %c  \n", 94);
+    printf("  Cantidad   %c  \n", 179);
+    printf("     de      %c  \n", 179);
+    printf("  personas   %c  \n", 179);
+    printf("             %c     %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c     %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c          %c%c%c%c%c%c%c%c \n", 179,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219);
+    printf("             %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",192,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,62);
+    printf("                 Menores de 18      De 19 a 35       Mayores de 35        ");
+
+    borrado();
 
 }
 
@@ -172,4 +224,10 @@ void borrarPersona(EPersona personas[CANT])
     getchar();
     system("cls");
 
+}
+
+void setColor(int background, int text){
+ HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+ int ncolor = text + (background * 16);
+ SetConsoleTextAttribute(console, ncolor);
 }
