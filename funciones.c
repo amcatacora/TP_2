@@ -81,7 +81,7 @@ void menu(){
     printf("\n");
     setColor(COLOR_NEGRO, COLOR_BLANCO);
 
-    printf("  Intregrantes\n  %c Facundo Franco Lastiri\n  %c Carloz Vazquez\n  %c Aaron Espindola\n  %c Adrian Catacora\n",175,175,175,175);
+    printf("  Intregrantes\n  %c Facundo Franco Lastiri\n  %c Carlos Vazquez\n  %c Aaron Espindola\n  %c Adrian Catacora\n",175,175,175,175);
 
     imprimirTitulo("Menu Principal");
     printf("  1- Agregar personas\n");
