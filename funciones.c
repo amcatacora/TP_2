@@ -117,7 +117,6 @@ void agregar(EPersona personas[CANT])
             setColor(COLOR_NEGRO, COLOR_BLANCO);
 
             printf("  ->  Nombre: ");
-            getchar();
             gets(personas[i].nombre);
             printf("  ->  Edad: ");
             scanf("%d",&personas[i].edad);
