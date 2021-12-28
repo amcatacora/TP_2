@@ -141,7 +141,7 @@ void agregar(EPersona personas[CANT])
             printChar(220, 40);
             printf("\n ");
             setColor(COLOR_AZUL, COLOR_BLANCO);
-            printf(" %c  Nueva persona #%d                    \n", 175, i+1);
+            printf(" %c  Nueva persona #%-2d                   \n", 175, i+1);
             setColor(COLOR_NEGRO, COLOR_AZUL);
             printf(" ");
             printChar(223, 40);
