@@ -14,6 +14,8 @@ typedef struct {
 
 
 void init(EPersona personas[CANT]);
+void initPersonas(EPersona personas[CANT]);
+void borrarTodos(EPersona personas[CANT]);
 void menu();
 void agregar(EPersona personas[CANT]);
 void mostrar(EPersona personas[CANT]);
@@ -22,5 +24,10 @@ void borrado(void);
 void imprimirListaOrdenada(EPersona personas[CANT]);
 void imprimirGraficoEdades(EPersona personas[CANT]);
 void setColor(int background, int text);
+void printLineValue(int line, int col1, int col2, int col3, int color1, int color2, int color3);
+void printChar(char c, int a);
+void initSpace();
+void printValue(int v, int color);
+void printChar(char c, int a);
 
 #endif // FUNCIONES_H_INCLUDED
