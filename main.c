@@ -11,6 +11,7 @@ int main()
     int opcion = 0;
 
     do{
+        system("cls");
         menu();
         opcion = getch();
         switch(opcion){

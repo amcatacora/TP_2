@@ -73,8 +73,8 @@ void menu(){
     printChar(220, 102);
     printf("\n");
     setColor(COLOR_AZUL, COLOR_BLANCO);
-    printf("                                       TRABAJO PRACTICO N%c2                                  ", 248);
-    printChar(32, 9);
+    printf("                                       TRABAJO PRACTICO N%c2", 248);
+    printChar(32, 43);
     printf("\n");
     setColor(COLOR_NEGRO, COLOR_AZUL);
     printChar(223, 102);
