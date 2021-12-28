@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
+#include <unistd.h>
 #include "funciones.h"
 
 ///definicion de colores
@@ -97,6 +98,8 @@ void menu(){
 
 void agregar(EPersona personas[CANT])
 {
+    int error = 0;
+
     for(int i = 0 ; i < CANT ; i++ ){
         system("cls");
         printf("\n");
@@ -117,12 +120,65 @@ void agregar(EPersona personas[CANT])
             printf("\n");
             setColor(COLOR_NEGRO, COLOR_BLANCO);
 
-            printf("  ->  Nombre: ");
-            gets(personas[i].nombre);
-            printf("  ->  Edad: ");
-            scanf("%d",&personas[i].edad);
-            printf("  ->  DNI: ");
-            scanf("%d",&personas[i].dni);
+            //Ingresar y validar Nombre y Apellido
+            do {
+                gotoxy(0, 8);
+                printf("  ->  Nombre y Apellido: ");
+                gets(personas[i].nombre);
+                if(strlen(personas[i].nombre) == 0){
+                    error = 1;
+                    gotoxy(25, 8);
+                    setColor(COLOR_ROJO, COLOR_BLANCO);
+                    printf("ERROR! no ingrese un Nombre y Apellido vacio");
+                    setColor(COLOR_NEGRO, COLOR_BLANCO);
+                    getch();
+                    gotoxy(25, 8);
+                    printf("                                             ");
+                } else {
+                    error = 0;
+                }
+            } while(error);
+
+            //Ingresar y validar Edad
+            do {
+                gotoxy(0, 9);
+                printf("  ->  Edad: ");
+                if(scanf("%d",&personas[i].edad) == 0 || personas[i].edad < 0 || personas[i].edad > 120){
+                    for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
+
+                    error = 1;
+                    gotoxy(12, 9);
+                    setColor(COLOR_ROJO, COLOR_BLANCO);
+                    printf("ERROR! ingrese una edad valida (entre 0 y 120)");
+                    setColor(COLOR_NEGRO, COLOR_BLANCO);
+                    getch();
+                    gotoxy(12, 9);
+                    printf("                                              ");
+                } else {
+                    error = 0;
+                }
+            } while(error);
+
+            //Ingresar y validar DNI
+            do {
+                gotoxy(0, 10);
+                printf("  ->  DNI: ");
+                if(scanf("%d",&personas[i].dni) == 0){
+                    for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
+
+                    error = 1;
+                    gotoxy(11, 10);
+                    setColor(COLOR_ROJO, COLOR_BLANCO);
+                    printf("ERROR! ingrese un dni valido");
+                    setColor(COLOR_NEGRO, COLOR_BLANCO);
+                    getch();
+                    gotoxy(11, 10);
+                    printf("                            ");
+                } else {
+                    error = 0;
+                }
+            } while(error);
+
             personas[i].estado = ACTIVO;
             for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
             imprimirMensaje("La persona fue agregada con exito.");
@@ -402,6 +458,7 @@ int buscarPor(EPersona personas[CANT])
     int dato;
     char nombre[25];
     int posi = -1;
+    int error = 0;
 
     system("cls");
     printf("\n");
@@ -418,9 +475,71 @@ int buscarPor(EPersona personas[CANT])
     }while(opcion != 49  && opcion != 50 && opcion != 51);
 
     switch(opcion){
-        case 49 : printf("\n Ingrese el nombre: "); getchar();gets(nombre);break;// tecla 1
-        case 50 : printf("\n Ingrese el DNI: "); scanf("%d",&dato);break;// tecla 2
-        case 51 : printf("\n Ingrese la edad: "); scanf("%d",&dato);break;// tecla 3
+        case 49:
+            //Ingresar y validar Nombre y Apellido
+            do {
+                gotoxy(0, 10);
+                printf(" Ingrese el nombre: ");
+                gets(nombre);
+                if(strlen(nombre) == 0){
+                    error = 1;
+                    gotoxy(19, 10);
+                    setColor(COLOR_ROJO, COLOR_BLANCO);
+                    printf("ERROR! no ingrese un Nombre y Apellido vacio");
+                    setColor(COLOR_NEGRO, COLOR_BLANCO);
+                    getch();
+                    gotoxy(19, 10);
+                    printf("                                             ");
+                } else {
+                    error = 0;
+                }
+            } while(error);
+
+            break;// tecla 1
+        case 50:
+            //Ingresar y validar DNI
+            do {
+                gotoxy(0, 10);
+                printf(" Ingrese la DNI: ");
+                if(scanf("%d",&dato) == 0){
+                    for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
+
+                    error = 1;
+                    gotoxy(17, 10);
+                    setColor(COLOR_ROJO, COLOR_BLANCO);
+                    printf("ERROR! ingrese un DNI valido");
+                    setColor(COLOR_NEGRO, COLOR_BLANCO);
+                    getch();
+                    gotoxy(17, 10);
+                    printf("                                              ");
+                } else {
+                    error = 0;
+                    for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
+                }
+            } while(error);
+            break;// tecla 2
+        case 51:
+            //Ingresar y validar Edad
+            do {
+                gotoxy(0, 10);
+                printf(" Ingrese la edad: ");
+                if(scanf("%d",&dato) == 0 || dato < 0 || dato > 120){
+                    for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
+
+                    error = 1;
+                    gotoxy(18, 10);
+                    setColor(COLOR_ROJO, COLOR_BLANCO);
+                    printf("ERROR! ingrese una edad valida (entre 0 y 120)");
+                    setColor(COLOR_NEGRO, COLOR_BLANCO);
+                    getch();
+                    gotoxy(18, 10);
+                    printf("                                              ");
+                } else {
+                    error = 0;
+                    for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
+                }
+            } while(error);
+            break;// tecla 3
     }
 
     //printf("Dato obtenido: %d %d %s",dato,dato,nombre);
@@ -446,7 +565,7 @@ void borrarPersona(EPersona personas[CANT])
 {
     int posi = 0;
     posi = buscarPor(personas);
-    borrado();
+    //borrado();
 
     if( posi != -1) {
         personas[posi].estado = VACIO;
@@ -461,6 +580,12 @@ void borrarPersona(EPersona personas[CANT])
     }
 
     borrado();
+}
+
+void gotoxy(int x, int y) {
+    COORD pos = {x,y};
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(hOut, pos);
 }
 
 void setColor(int background, int text){

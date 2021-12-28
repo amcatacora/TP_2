@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1640699832 source:c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.c
+1640732408 source:c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	<conio.h>
 	<windows.h>
+	<unistd.h>
 	"funciones.h"
 
 1640702687 source:c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\main.c
@@ -13,7 +14,7 @@
 	<conio.h>
 	"funciones.h"
 
-1640694840 c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.h
+1640725887 c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.h
 
 1640583327 source:c:\users\lasti\onedrive\escritorio\proyectos\tp_22\funciones.c
 	"funciones.h"

@@ -34,5 +34,6 @@ void printChar(char c, int a);
 void initSpace();
 void printValue(int v, int color);
 void printChar(char c, int a);
+void gotoxy(int x, int y);
 
 #endif // FUNCIONES_H_INCLUDED
