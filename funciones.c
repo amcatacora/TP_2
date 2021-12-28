@@ -19,6 +19,7 @@
 
 void init(EPersona personas[CANT])
 {
+    //Inicializa el array de personas
     for(int i = 0 ; i<CANT ; i++ )
     {
         strcpy(personas[i].nombre,"");
