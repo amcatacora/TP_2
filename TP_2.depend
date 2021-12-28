@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1640732408 source:c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.c
+1640734809 source:c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -14,7 +14,7 @@
 	<conio.h>
 	"funciones.h"
 
-1640725887 c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.h
+1640734393 c:\users\adrian catacora\desktop\utn\programacion\proyectos\git\tp_2\funciones.h
 
 1640583327 source:c:\users\lasti\onedrive\escritorio\proyectos\tp_22\funciones.c
 	"funciones.h"

@@ -54,15 +54,40 @@ void initPersonas(EPersona personas[CANT])
     personas[2].dni = 789;
     personas[2].estado = ACTIVO;
 
-    strcpy(personas[3].nombre, "Agustin Lopez");
+    strcpy(personas[3].nombre, "Ana Fernandez");
     personas[3].edad = 12;
-    personas[3].dni = 123;
+    personas[3].dni = 123123123;
     personas[3].estado = ACTIVO;
 
     strcpy(personas[4].nombre, "Fernando Herrero");
     personas[4].edad = 33;
-    personas[4].dni = 111;
+    personas[4].dni = 11111111;
     personas[4].estado = ACTIVO;
+
+    strcpy(personas[5].nombre, "Maria Aguirre");
+    personas[5].edad = 54;
+    personas[5].dni = 2222222;
+    personas[5].estado = ACTIVO;
+
+    strcpy(personas[6].nombre, "Agustin Lopez");
+    personas[6].edad = 6;
+    personas[6].dni = 33333333;
+    personas[6].estado = ACTIVO;
+
+    strcpy(personas[7].nombre, "Flavia Casco");
+    personas[7].edad = 42;
+    personas[7].dni = 44444444;
+    personas[7].estado = ACTIVO;
+
+    strcpy(personas[8].nombre, "Hernan Zurita");
+    personas[8].edad = 87;
+    personas[8].dni = 55555555;
+    personas[8].estado = ACTIVO;
+
+    strcpy(personas[9].nombre, "Nestor Aguilar");
+    personas[9].edad = 24;
+    personas[9].dni = 66666666;
+    personas[9].estado = ACTIVO;
 
     printf("\n");
     imprimirMensaje("Los datos fueron cargados con exito.");
@@ -86,7 +111,7 @@ void menu(){
     printf("  Intregrantes\n  %c Facundo Franco Lastiri\n  %c Carlos Vazquez\n  %c Aaron Espindola\n  %c Adrian Catacora\n",175,175,175,175);
 
     imprimirTitulo("Menu Principal");
-    printf("  1- Agregar personas\n");
+    printf("  1- Agregar persona\n");
     printf("  2- Borrar persona\n");
     printf("  3- Ordenar por nombre e imprimir lista\n");
     printf("  4- Imprimir grafico de edades\n");
@@ -99,13 +124,16 @@ void menu(){
 void agregar(EPersona personas[CANT])
 {
     int error = 0;
+    int personaAgregada = 0;
+
+    system("cls");
+    printf("\n");
+    imprimirTitulo("Agregar personas");
 
     for(int i = 0 ; i < CANT ; i++ ){
-        system("cls");
-        printf("\n");
-        imprimirTitulo("Agregar personas");
-
         if( personas[i].estado == VACIO ){
+
+            personaAgregada = 1;
 
             // imprimir subtitulo
             printf(" ");
@@ -185,17 +213,14 @@ void agregar(EPersona personas[CANT])
             if(i+1 < CANT) {
                 borrado();
             }
-        }else{
-            //printf("Lugar [%d] Ocupado  \n",i+1);
-            char titulo[30];
-            sprintf(titulo, "Lugar #%d ocupado", i+1);
-            imprimirError(titulo);
-            if(i+1 < CANT) {
-                borrado();
-            }
+            break;
         }
     }
-    borrado();
+
+    if(personaAgregada == 0) {
+        imprimirError("Ya estan todas las personas cargadas, utilizar la funcion borrar.");
+        getch();
+    }
 }
 
 void mostrar(EPersona personas[CANT])
@@ -302,7 +327,7 @@ void mostrarGrilla(EPersona personas[CANT])
                personas[i].nombre,179,
                personas[i].dni,179,
                personas[i].edad,179);
-            if(i+1 < CANT) {
+            if(i+1 < CANT && personas[i+1].estado == ACTIVO) {
                 printChar(195, 1);
                 printChar(196, 50);
                 printChar(197, 1);
