@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <conio.h>
 #include <windows.h>
 #include "funciones.h"
 
@@ -8,10 +9,13 @@
 #define COLOR_NEGRO 0
 #define COLOR_AZUL 1
 #define COLOR_VERDE 2
+#define COLOR_VERDE_CLARO 10
 #define COLOR_CELESTE 3
 #define COLOR_ROJO 4
 #define COLOR_GRIS 8
 #define COLOR_BLANCO 15
+#define COLOR_VIOLETA 5
+#define COLOR_AMARILLO 14
 
 void init(EPersona personas[CANT])
 {
@@ -26,7 +30,8 @@ void init(EPersona personas[CANT])
 
 void borrarTodos(EPersona personas[CANT]) {
     init(personas);
-    printf("\n\nLos datos fueron borrados con exito!");
+    printf("\n");
+    imprimirMensaje("Los datos fueron borrados con exito.");
     borrado();
 }
 
@@ -57,40 +62,81 @@ void initPersonas(EPersona personas[CANT])
     personas[4].dni = 111;
     personas[4].estado = ACTIVO;
 
-    printf("\n\nLos datos fueron cargados con exito!");
+    printf("\n");
+    imprimirMensaje("Los datos fueron cargados con exito.");
     borrado();
 }
 
 void menu(){
-    printf("------------- Trabajo Practico Nro 2 ------------- \n");
-    printf("Intregrantes:\n>-- Facundo Franco Lastiri\n>-- Carloz Vazquez\n>-- Aaron Espindola\n>-- Adrian Catacora\n\n");
-    printf("------------- Menu Principal -------------\n\n");
-    printf("1- Agregar personas\n");
-    printf("2- Borrar persona\n");
-    printf("3- Ordenar por nombre e imprimir lista\n");
-    printf("4- Imprimir grafico de edades\n");
-    printf("5- Imprimir lista\n");
-    printf("6- Cargar datos de prueba\n");
-    printf("7- Borrar todos los datos\n");
-    printf("8- Salir del programa\n");
+
+    setColor(COLOR_NEGRO, COLOR_AZUL);
+    printChar(220, 102);
+    printf("\n");
+    setColor(COLOR_AZUL, COLOR_BLANCO);
+    printf("                                       TRABAJO PRACTICO N%c2                                  ", 248);
+    printChar(32, 9);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_AZUL);
+    printChar(223, 102);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
+
+    printf("  Intregrantes\n  %c Facundo Franco Lastiri\n  %c Carloz Vazquez\n  %c Aaron Espindola\n  %c Adrian Catacora\n",175,175,175,175);
+
+    imprimirTitulo("Menu Principal");
+    printf("  1- Agregar personas\n");
+    printf("  2- Borrar persona\n");
+    printf("  3- Ordenar por nombre e imprimir lista\n");
+    printf("  4- Imprimir grafico de edades\n");
+    printf("  5- Imprimir lista\n");
+    printf("  6- Cargar datos de prueba\n");
+    printf("  7- Borrar todos los datos\n");
+    printf("  8- Salir del programa\n");
 }
 
 void agregar(EPersona personas[CANT])
 {
-    printf("\n --- FUNCION DE AGREGANDO --- \n");
     for(int i = 0 ; i < CANT ; i++ ){
+        system("cls");
+        printf("\n");
+        imprimirTitulo("Agregar personas");
+
         if( personas[i].estado == VACIO ){
-            printf("----------NUEVO----------\n");
-            printf(" >-- Nombre : ");
+
+            // imprimir subtitulo
+            printf(" ");
+            setColor(COLOR_NEGRO, COLOR_AZUL);
+            printChar(220, 40);
+            printf("\n ");
+            setColor(COLOR_AZUL, COLOR_BLANCO);
+            printf(" %c  Nueva persona #%d                    \n", 175, i+1);
+            setColor(COLOR_NEGRO, COLOR_AZUL);
+            printf(" ");
+            printChar(223, 40);
+            printf("\n");
+            setColor(COLOR_NEGRO, COLOR_BLANCO);
+
+            printf("  ->  Nombre: ");
             getchar();
             gets(personas[i].nombre);
-            printf(" >-- Edad : ");
+            printf("  ->  Edad: ");
             scanf("%d",&personas[i].edad);
-            printf(" >-- D.N.I : ");
+            printf("  ->  DNI: ");
             scanf("%d",&personas[i].dni);
             personas[i].estado = ACTIVO;
+            for( int c = getchar(); c != EOF && c != ' ' && c != '\n' ; c = getchar());
+            imprimirMensaje("La persona fue agregada con exito.");
+            if(i+1 < CANT) {
+                borrado();
+            }
         }else{
-            printf("Lugar [%d] Ocupado  \n",i+1);
+            //printf("Lugar [%d] Ocupado  \n",i+1);
+            char titulo[30];
+            sprintf(titulo, "Lugar #%d ocupado", i+1);
+            imprimirError(titulo);
+            if(i+1 < CANT) {
+                borrado();
+            }
         }
     }
     borrado();
@@ -110,10 +156,126 @@ void mostrar(EPersona personas[CANT])
     borrado();
 }
 
+void imprimirTitulo(char titulo[]) {
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_VERDE);
+    printChar(220, 102);
+    printf("\n");
+    setColor(COLOR_VERDE, COLOR_BLANCO);
+    printf(" %c  %-89s", 175, titulo);
+    printChar(32, 9);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_VERDE);
+    printChar(223, 102);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
+}
+
+void imprimirMensaje(char titulo[]) {
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_VERDE_CLARO);
+    printChar(220, 102);
+    printf("\n");
+    setColor(COLOR_VERDE_CLARO, COLOR_BLANCO);
+    printf(" <%c>  %-89s", 33, titulo);
+    printChar(32, 7);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_VERDE_CLARO);
+    printChar(223, 102);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
+}
+
+void imprimirError(char titulo[]) {
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_ROJO);
+    printChar(220, 102);
+    printf("\n");
+    setColor(COLOR_ROJO, COLOR_BLANCO);
+    printf(" <%c>  %-89s", 158, titulo);
+    printChar(32, 7);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_ROJO);
+    printChar(223, 102);
+    printf("\n");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
+}
+
+void mostrarGrilla(EPersona personas[CANT])
+{
+    system("cls");
+    imprimirTitulo("Listado de personas");
+
+    printChar(218, 1);
+    printChar(196, 50);
+    printChar(194, 1);
+    printChar(196, 29);
+    printChar(194, 1);
+    printChar(196, 19);
+    printChar(191, 1);
+    printf("\n");
+
+    printChar(179, 1);
+    setColor(COLOR_AZUL, COLOR_BLANCO);
+    printf("%-50s", "  NOMBRE");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
+    printChar(179, 1);
+    setColor(COLOR_AZUL, COLOR_BLANCO);
+    printf("%-29s", "              DNI");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
+    printChar(179, 1);
+    setColor(COLOR_AZUL, COLOR_BLANCO);
+    printf("%-19s", "       EDAD");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
+    printChar(179, 1);
+    printf("\n");
+
+    printChar(195, 1);
+    printChar(196, 50);
+    printChar(197, 1);
+    printChar(196, 29);
+    printChar(197, 1);
+    printChar(196, 19);
+    printChar(180, 1);
+    printf("\n");
+
+
+    for( int i = 0 ; i < CANT ; i++ ) {
+        if(personas[i].estado == ACTIVO){
+            printf("%c%-50s%c%-29d%c%-19d%c\n",179,
+               personas[i].nombre,179,
+               personas[i].dni,179,
+               personas[i].edad,179);
+            if(i+1 < CANT) {
+                printChar(195, 1);
+                printChar(196, 50);
+                printChar(197, 1);
+                printChar(196, 29);
+                printChar(197, 1);
+                printChar(196, 19);
+                printChar(180, 1);
+                printf("\n");
+            }
+        }
+    }
+
+    printChar(192, 1);
+    printChar(196, 50);
+    printChar(193, 1);
+    printChar(196, 29);
+    printChar(193, 1);
+    printChar(196, 19);
+    printChar(217, 1);
+    printf("\n");
+
+    borrado();
+}
+
 void borrado()
 {
-    //getchar();
-    printf("\n\nPresione una tecla para continuar...\n");
+    setColor(COLOR_NEGRO, COLOR_GRIS);
+    printf("\n Presione una tecla para continuar...");
+    setColor(COLOR_NEGRO, COLOR_BLANCO);
     getchar();
     system("cls");
 }
@@ -121,8 +283,6 @@ void borrado()
 
 void imprimirListaOrdenada(EPersona personas[CANT])
 {
-    //MOSTRAR LISTA
-    printf("\n Personas base\n");
     //FUNCION ORDENAR LISTA
     for (int i = 0; i < CANT; i++){
         for (int j = 0; j < CANT-1; j++){
@@ -133,13 +293,11 @@ void imprimirListaOrdenada(EPersona personas[CANT])
                 personas[j] = personas[j+1];
                 personas[j+1] = aux;
             }
-
         }
-
     }
     //MOSTRAR LISTA ORDENADA
     printf("\n Personas ordenadas por nombre\n");
-    mostrar(personas);
+    mostrarGrilla(personas);
 }
 
 void imprimirGraficoEdades(EPersona personas[CANT]) {
@@ -181,7 +339,7 @@ void imprimirGraficoEdades(EPersona personas[CANT]) {
     }
 
     system("cls");
-    printf("\n\n                                  GRAFICO DE EDADES \n\n");
+    imprimirTitulo("GRAFICO DE EDADES");
     printf("              %c", 94);
 
     //imprime valores de matriz
@@ -192,7 +350,7 @@ void imprimirGraficoEdades(EPersona personas[CANT]) {
     printf("\n              %c",192);
     printChar(196, 62);
     printf("%c \n",62);
-    printf("                  Menores de 18      De 19 a 35       Mayores de 35");
+    printf("                  Menores de 18      De 19 a 35       Mayores de 35\n\n");
 
     borrado();
 }
@@ -245,33 +403,38 @@ int buscarPor(EPersona personas[CANT])
     char nombre[25];
     int posi = -1;
 
-    printf("\n Que que tipo de dato sea buscar?\n\n");
-    printf("\n - [ 1 ] Nombre y Apellido \n");
-    printf("\n - [ 2 ] DNI \n");
-    printf("\n - [ 3 ] EDAD \n");
-    do{
-        scanf("%d",&opcion);
-    }while(opcion != 1  && opcion != 2 && opcion != 3 );
+    system("cls");
+    printf("\n");
+    char titulo[30];
+    sprintf(titulo, "%cQue que tipo de dato desea buscar?", 168);
+    imprimirTitulo(titulo);
+    printf("\n");
 
-    if(opcion!=4){printf("\n Ingrese el dato:");}
+    printf("- [ 1 ] Nombre y Apellido \n");
+    printf("- [ 2 ] DNI \n");
+    printf("- [ 3 ] Edad \n");
+    do{
+        opcion = getch();
+    }while(opcion != 49  && opcion != 50 && opcion != 51);
+
     switch(opcion){
-        case 1 : getchar();gets(nombre);break;
-        case 2 : scanf("%d",&dato);break;
-        case 3 : scanf("%d",&dato);break;
+        case 49 : printf("\n Ingrese el nombre: "); getchar();gets(nombre);break;// tecla 1
+        case 50 : printf("\n Ingrese el DNI: "); scanf("%d",&dato);break;// tecla 2
+        case 51 : printf("\n Ingrese la edad: "); scanf("%d",&dato);break;// tecla 3
     }
 
-    printf("Dato obtenido: %d %d %s",dato,dato,nombre);
+    //printf("Dato obtenido: %d %d %s",dato,dato,nombre);
 
     for(int i = 0 ; i < CANT ; i++ ){
-        if(opcion == 1 && (strcmp(personas[i].nombre,nombre) == 0 )&& personas[i].estado == ACTIVO){
+        if(opcion == 49 && (strcmp(personas[i].nombre,nombre) == 0 )&& personas[i].estado == ACTIVO){
             posi = i;
             break;
         }
-        if(opcion == 2 && personas[i].dni == dato && personas[i].estado == ACTIVO ){
+        if(opcion == 50 && personas[i].dni == dato && personas[i].estado == ACTIVO ){
             posi = i;
             break;
         }
-        if(opcion == 3 && personas[i].edad == dato && personas[i].estado == ACTIVO ){
+        if(opcion == 51 && personas[i].edad == dato && personas[i].estado == ACTIVO ){
             posi = i;
             break;
         }
@@ -284,20 +447,20 @@ void borrarPersona(EPersona personas[CANT])
     int posi = 0;
     posi = buscarPor(personas);
     borrado();
-    if( posi != -1)
-    {
+
+    if( posi != -1) {
         personas[posi].estado = VACIO;
-        printf("\n Dato Encontrado y Eliminado con Exito \n");
+        printf("\n");
+        imprimirMensaje("Dato encontrado y eliminado con exito.");
+        printf("\n");
 
+    } else {
+        printf("\n");
+        imprimirError("Dato no encontrado.");
+        printf("\n");
     }
-    else
-    {
-        printf("\n [ERROR] Dato no Encontrado \n");
-    }
 
-    getchar();
-    system("cls");
-
+    borrado();
 }
 
 void setColor(int background, int text){

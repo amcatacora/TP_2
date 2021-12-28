@@ -18,7 +18,7 @@ int main()
             case 50 : borrarPersona(personas); break;//tecla 2
             case 51 : imprimirListaOrdenada(personas); break;//tecla 3
             case 52 : imprimirGraficoEdades(personas); break;//tecla 4
-            case 53 : mostrar(personas);break;//tecla 5
+            case 53 : mostrarGrilla(personas);break;//tecla 5
             case 54 : initPersonas(personas);break;//tecla 6
             case 55 : borrarTodos(personas);break;//tecla 7
         }
