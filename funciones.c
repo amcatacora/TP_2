@@ -320,14 +320,22 @@ void mostrarGrilla(EPersona personas[CANT])
     printChar(180, 1);
     printf("\n");
 
-
+    int cantidadPersonas = 0;
     for( int i = 0 ; i < CANT ; i++ ) {
         if(personas[i].estado == ACTIVO){
+            cantidadPersonas++;
+        }
+    }
+
+    int grillaFilas = 0;
+    for( int i = 0 ; i < CANT ; i++ ) {
+        if(personas[i].estado == ACTIVO){
+            grillaFilas++;
             printf("%c%-50s%c%-29d%c%-19d%c\n",179,
                personas[i].nombre,179,
                personas[i].dni,179,
                personas[i].edad,179);
-            if(i+1 < CANT && personas[i+1].estado == ACTIVO) {
+            if(i+1 < CANT && grillaFilas < cantidadPersonas) {
                 printChar(195, 1);
                 printChar(196, 50);
                 printChar(197, 1);
@@ -337,6 +345,7 @@ void mostrarGrilla(EPersona personas[CANT])
                 printChar(180, 1);
                 printf("\n");
             }
+
         }
     }
 
